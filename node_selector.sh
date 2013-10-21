@@ -14,4 +14,4 @@ case "$mac" in
         node=250
 esac
 
-./node_setup.sh $node
+echo $node

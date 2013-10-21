@@ -1,6 +1,6 @@
 #!/bin/bash
 
-node=$1
+node=$(./node_selector.sh)
 eth_iface=eth0
 wifi_iface=wlan0
 eth_addr=10.0.2.$node/24

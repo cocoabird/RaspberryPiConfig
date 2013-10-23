@@ -1,17 +1,18 @@
 #!/bin/bash
 
-iface=eth0
-mac=$(cat /sys/class/net/$iface/address)
+iface=$1
+key=$(cat /sys/class/net/$iface/address)
+file=node_macs
+default=250
 
-case "$mac" in
-    "b8:27:eb:7b:c3:91")
-        node=01
-        ;;
-    "b8:27:eb:54:9c:64")
-        node=02
-        ;;
-    *)
-        node=250
-esac
+cat $file | while read line
+do
+    mac=$(echo $line | cut -f1 -d' ')
+    num=$(echo $line | cut -f2 -d' ')
+    if [ "$mac" = "$key" ]; then
+        echo $num
+        exit 0
+    fi
+done
 
-echo $node
+echo $default

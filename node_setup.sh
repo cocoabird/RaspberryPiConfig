@@ -8,9 +8,9 @@ wifi_addr=10.0.0.1$node/24
 
 bash node_ether.sh $node
 
-cat /dev/null > /etc/hostname
-echo "rasp"$node > /etc/hostname
-echo "rasp"$node #Is there for debugging
+#cat /dev/null > /etc/hostname
+#echo "rasp"$node > /etc/hostname
+#echo "rasp"$node #Is there for debugging
 
 if [ -d /sys/class/net/$wifi_iface ]; then
     ./node_wifi.sh $node

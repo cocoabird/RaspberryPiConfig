@@ -10,6 +10,7 @@ bash node_ether.sh $node
 
 cat /dev/null > /etc/hostname
 echo "rasp"$node > /etc/hostname
+echo "rasp"$node
 
 if [ -d /sys/class/net/$wifi_iface ]; then
     ./node_wifi.sh $node

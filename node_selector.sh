@@ -5,7 +5,7 @@ key=$(cat /sys/class/net/$iface/address)
 file=node_macs
 default=250
 
-cat $file | while read line
+while read line
 do
     mac=$(echo $line | cut -f1 -d' ')
     num=$(echo $line | cut -f2 -d' ')
@@ -13,6 +13,9 @@ do
         echo $num
         exit 0
     fi
-done
+done <<<"$(cat $file)"
 
-echo $default
+if [ "$mac" != "$key" ]; then
+   echo $default
+fi
+

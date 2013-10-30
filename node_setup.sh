@@ -9,7 +9,7 @@ wifi_addr=10.0.0.1$node/24
 bash node_ether.sh $node
 
 echo "rasp"$node > /etc/hostname
-sed -E "s/(127\.0\.0\.1\s+localhost)( rasp)?/\1 rasp$node/g" /etc/hosts
+#sed -E "s/(127\.0\.0\.1\s+localhost)( rasp$node)?/\1 rasp$node/g" /etc/hosts
 
 if [ -d /sys/class/net/$wifi_iface ]; then
     ./node_wifi.sh $node

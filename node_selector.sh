@@ -8,7 +8,7 @@ default=250
 while read line
 do
     mac=$(echo $line | cut -f1 -d' ')
-    num=$(echo $line | cut -f2 -d' ')
+    num=$(echo $line | cut -f3 -d' ')
     if [ "$mac" = "$key" ]; then
         echo $num
         exit 0
